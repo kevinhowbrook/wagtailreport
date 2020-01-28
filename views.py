@@ -13,7 +13,8 @@ class WagtailReportListingview(TemplateView):
         report_pages = []
         apps = django.apps.apps.get_models()
         for app in apps:
-            if issubclass(app, Page) and app._meta.verbose_name != 'page': #TODO, this won't hold up...
+            import pudb; pudb.set_trace()
+            if issubclass(app, Page) and app._meta.verbose_name != 'page': #TODO, this won't hold up... probably better to check for page attributes here, like preview method or path
                 model = {}
                 model.update({'label': app._meta.verbose_name})
                 # Get model counts
